@@ -1,0 +1,6 @@
+all:
+	cl /nologo /c foolib.c
+	lib /nologo foolib.obj
+
+clean:
+	rm *~ foolib.obj foolib.lib
