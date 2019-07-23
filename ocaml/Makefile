@@ -23,7 +23,8 @@ main.cmxa:  main.cmx  dllskia_stubs.so
 	ocamlopt -a  -o $@  $<  -cclib -lskia_stubs -verbose
 
 myapp.exe: skia_stubs.obj main.cmx
-	ocamlopt -o $@ ../esy-skia/out/Static/skia.lib skia_stubs.obj main.cmx
+	./msvs-promote-path
+	ocamlopt -o $@ ../esy-skia/out/Static/skia.lib user32.lib skia_stubs.obj main.cmx
 
 clean:
 	rm -f *~ *.[oa] *.so *.cm[ixoa] *.cmxa *.obj *.dll *.exe *.lib
